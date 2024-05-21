@@ -23,7 +23,7 @@ class VideoUploadView(APIView):
         if serializer.is_valid():
             serializer.save()
             video_path = os.path.join(settings.MEDIA_ROOT, serializer.data['file'])
-            subprocess.Popen(["python", "/home/uday/Desktop/projectTry/BACKEND/code/run.py", video_path])
+            subprocess.Popen(["python", "../code/run.py", video_path])
             return Response(serializer.data, status=201)
         else:
             return Response(serializer.errors, status=400)
